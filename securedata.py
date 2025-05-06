@@ -101,8 +101,8 @@ elif choice == "Login":
                 st.success(f"✅ Welcome {username}!")
             else:
                 st.session_state.failed_attempts += 1
-                remaining = 3 - st.session_state.fsiled_attrmpts
-                st.error(f"❌ Invaild Credentials! Attempts left: {remaining}")
+                remaining = 3 - st.session_state.failed_attempts
+                st.error(f"❌ Invalid Credentials! Attempts left: {remaining}")
 
                 if st.session_state.failed_attempts >= 3:
                     st.session_state.lockout_time = time.time() + LOCKOUT_DURATION
