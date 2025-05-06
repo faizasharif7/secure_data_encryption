@@ -133,18 +133,18 @@ elif choice == "Retrieve Data":
     if not st.session_state.authenticated_user:
         st.warning("🔐 Please login first")
     else:
-        st.subheader("🔍 Retieve data")
+        st.subheader("🔍 Retrieve data")
         user_data = stored_data.get(st.session_state.authenticated_user, {}).get("data",[])
 
         if not user_data:
             st.info("No Data Found!")
         else:
-            st.write("Encryted Data Enteries:")
+            st.write("Encrypted Data Enteries:")
             for i, item in enumerate(user_data):
                 st.code(item,language="text")
 
             encrypted_input = st.text_area("Enter Encrypted Text")
-            passkey = st.text_input("Enter Passkey T Decrypt", type="password")
+            passkey = st.text_input("Enter Passkey to Decrypt", type="password")
 
             if st.button("Decrypt"):
                 result = decrypt_text(encrypted_input, passkey)
