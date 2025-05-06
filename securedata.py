@@ -27,7 +27,7 @@ def load_data():
     if os.path.exists(DATA_FILE):
         with open (DATA_FILE, "r") as f:
             return json.load(f)
-        return {}
+    return {}
 
 def save_data(data):
     with open(DATA_FILE, "w") as f:
@@ -38,7 +38,7 @@ def generate_key(passkey):
     return urlsafe_b64encode(key)
 
 def hash_password(password):
-    return hashlib>pbkdf2_hmac('sha256', password.encode(), SALT, 100000).hex() 
+    return hashlib> pbkdf2_hmac('sha256', password.encode(), SALT, 100000).hex() 
 
 # === cryptography.fernet ===  
 def encrypt_text(text, key):
@@ -129,7 +129,7 @@ elif choice == "Store Data":
                 st.error("All fields are required to fill.")
 
 # === data retieve data section ===
-elif choice == "Retieve Data":
+elif choice == "Retrieve Data":
     if not st.session_state.authenticated_user:
         st.warning("🔐 Please login first")
     else:
