@@ -151,7 +151,7 @@ elif choice == "Retrieve Data":
                 if result:
                     st.success(f"✅ Decrypted : {result}")
                 else:
-                    st.error("❌ Incorrect 
+                    st.error("❌ Incorrect passkey or corrupted data.")
                     st.success(f"✅ Decrypted : {result}")
                 else:
                     st.error("❌ Incorrect passkey or corrupted data.")
