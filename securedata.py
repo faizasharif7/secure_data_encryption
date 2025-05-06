@@ -131,7 +131,7 @@ elif choice == "Store Data":
 # === data retieve data section ===
 elif choice == "Retrieve Data":
     if not st.session_state.authenticated_user:
-        st.warning("🔐 Please login first")
+        st.warning("🔐 Please login first.")
     else:
         st.subheader("🔍 Retrieve data")
         user_data = stored_data.get(st.session_state.authenticated_user, {}).get("data",[])
@@ -141,7 +141,7 @@ elif choice == "Retrieve Data":
         else:
             st.write("Encrypted Data Enteries:")
             for i, item in enumerate(user_data):
-                st.code(item,language="text")
+                st.code(item, language="text")
 
             encrypted_input = st.text_area("Enter Encrypted Text")
             passkey = st.text_input("Enter Passkey to Decrypt", type="password")
@@ -149,6 +149,9 @@ elif choice == "Retrieve Data":
             if st.button("Decrypt"):
                 result = decrypt_text(encrypted_input, passkey)
                 if result:
+                    st.success(f"✅ Decrypted : {result}")
+                else:
+                    st.error("❌ Incorrect 
                     st.success(f"✅ Decrypted : {result}")
                 else:
                     st.error("❌ Incorrect passkey or corrupted data.")
